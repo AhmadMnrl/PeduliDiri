@@ -19,11 +19,11 @@ class UserSeeder extends Seeder
             'nama' => 'ahmad',
             'telp' => '085719127681',
             'username' => 'ahmad',
-            'foto' => 'profile.jpg',
             'email' => 'serigalaberbulu465@gmail.com',
             'password' => Hash::make('ahmad'),
-            'remember_token' => Str::random(32)
-            
+            'remember_token' => Str::random(32),
+            'role' => 'admin'
+
         ]);
     }
 }

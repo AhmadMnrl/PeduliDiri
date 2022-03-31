@@ -31,17 +31,21 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => ['auth','prevent-back-history']],function(){
 
-    Route::get('/perjalanan', 'PerjalananController@index');
-    Route::get('/perjalanan/create', 'PerjalananController@create');
-    Route::post('/perjalanan/store','PerjalananController@store');
-    Route::get('/perjalanan/edit/{id}', 'PerjalananController@edit');
-    Route::put('/perjalanan/update/{id}', 'PerjalananController@update');
-    Route::get('/hapusall', 'PerjalananController@hapusAll');
-    Route::get('/perjalanan/delete/{id}','PerjalananController@destroy');
-    // Route::get('/propil/{id}', 'ProfileController@index');
+        Route::get('/perjalanan', 'PerjalananController@index');
+        Route::get('/perjalanan/create', 'PerjalananController@create');
+        Route::post('/perjalanan/store', 'PerjalananController@store');
+        Route::get('/perjalanan/edit/{id}', 'PerjalananController@edit');
+        Route::put('/perjalanan/update/{id}', 'PerjalananController@update');
+        Route::get('/hapusall', 'PerjalananController@hapusAll');
+        Route::get('/perjalanan/delete/{id}', 'PerjalananController@destroy');
+
+
     Route::get('/propil/edit/{id}', 'ProfileController@edit');
     Route::put('/propil/update/{id}', 'ProfileController@update');
 
+    Route::get('/dataUser', 'PerjalananController@dataUser')->name('user.data');
+    Route::get('/dataUser/cetak_pdf', 'PerjalananController@cetak_pdf');
+    Route::get('/hapus/user/{id}','PerjalananController@hapus');
     Route::get('/dashboard', function () {
         return view('dashboard.dashboard');
     });

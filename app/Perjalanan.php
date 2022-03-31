@@ -14,6 +14,6 @@ class Perjalanan extends Model
 
     public function User()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','id_user','id');
     }
 }

@@ -25,11 +25,11 @@ class AuthController extends Controller
     public function postregister(Request $request)
     {
         $request->validate([
-            'nik' => 'required|max:16',
+            'nik' => 'required|max:16','unique:user',
             'username' => 'required',
             'nama' => 'required',
-            'email' => 'required',
-            'password'=>'required'
+            'email' => 'required','unique:user',
+            'password'=>'nullable|required|confirmed',
         ]);
 
         $user = User::create([
@@ -38,14 +38,17 @@ class AuthController extends Controller
        'nama' => $request->nama,
        'email' => $request->email,
        'password' => bcrypt($request->password),
-       'remember_token'=>str_random('60')
-    ]); 
-    
-        return redirect('/signin')->with('message', 'Akun Berhasil Dibuat');;   
+       'remember_token'=>str_random('60'),
+       'role' => 'user'
+    ]);
+
+        return redirect('/signin')->with('message', 'Akun Berhasil Dibuat');;
     }
      public function postlogin(Request $request)
     {
-        if(Auth::attempt($request->only('username','password'))){
+        if
+
+        (Auth::attempt($request->only('username','password'))){
         return redirect('/dashboard');
         }
         return redirect('/signin');

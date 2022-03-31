@@ -12,7 +12,7 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="{{asset('login/assets/css/style.css')}}">
-    <link href="{{asset('assets-br/img/loog.png')}}" rel='shorcut icon'>
+    <link href="{{asset('assets-br/img/logo1.png')}}" rel='shorcut icon'>
 
 </head>
 

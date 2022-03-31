@@ -83,15 +83,18 @@
                                 <img @if(Auth::user()->foto != NULL && Auth::user()->foto > 0)src="{{asset('foto/'.Auth::user()->foto)}}"
                                 @else src="{{asset('foto/default.jpeg')}}" @endif alt="Admin"
                                 class="rounded-circle" width="150">
+                                <!-- <img src="{{asset('foto/default.jpeg')}}" alt="" width="150" class="rounded-circle"> -->
                                 <div class="mt-3">
-                                    <h4>{{$propil->username}}</h4>
+                                    <h4>{{$propil->nama}}</h4>
+                                    <p class="text-muted font-size-sm">{{$propil->alamat}}</p>
                                     <!-- <button class="btn btn-primary">Follow</button> -->
                                     <!-- <a href="/perjalanan" class="btn btn-primary">Show Riwayat Perjalanan</a> -->
                                 </div>
+                                <hr>
                             </div>
                         </div>
                     </div>
-                 
+
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
@@ -140,16 +143,16 @@
                                         <h6 class="mb-0">Telpon</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="telp" value="{{$propil->telp}}" id="" class="form-control" autocomplete="off">
+                                        <input type="text" name="telp" value="{{$propil->telp ?? "NULL"}}" id="" class="form-control" autocomplete="off">
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="card" style="width: 98%; margin-left: 0; border: none;">
-                                    <ul class="list-unstyled">
-                                        <li class="d-flex">
-                                            <div class="flex-grow-1">
-                                                <div class="form-group">
+                                        <div class="row">
+                                         <div class="col-sm-3">
+
                                                     <h6 class="mb-0">Alamat</h6>
+                                         </div>
+                                          <div class="col-sm-9 text-secondary">
                                                     <select class="form-control mt-3" id="selectProvinsi">
                                                         <option>Provinsi</option>
                                                     </select>
@@ -163,12 +166,10 @@
                                                         <option>Kelurahan</option>
                                                     </select>
                                                     <br>
-                                                    <textarea name="alamat" id="alamat" cols="87" value="" rows="4">{{$propil->alamat}}</textarea>
+                                                    <textarea  class="form-control mt-3" name="alamat" id="alamat" cols="65" value="" rows="4">{{$propil->alamat ?? "NULL"}}</textarea>
                                                 </div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </div>
+
                                 <hr>
                                 <!-- <hr>
                                 <div class="row">
@@ -187,7 +188,7 @@
                                         <input type="file" name="foto" class="form-control">
                                     </div>
                                 </div>
-                                <hr>
+
                                 <!-- <hr>
                                 <div class="row">
                                     <div class="col-sm-3">

@@ -97,19 +97,20 @@
                                 @else src="{{asset('foto/default.jpeg')}}" @endif alt="Admin"
                                 class="rounded-circle" width="150">
                                 <div class="mt-3">
-                                    <h4>{{auth()->user()->username}}</h4>
+                                    <h4>{{auth()->user()->nama}}</h4>
                                     <p class="text-secondary mb-1">{{auth()->user()->email}}</p>
                                     <a class="btn btn-primary" href="/propil/edit/{{auth()->user()->id}}">Edit Profile</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
                 <div class="col-md-8">
-                    <div class="card mb-3">
+                    <div class="card mb-4">
                         <div class="card-body">
                             <div class="row">
+                                @if(Auth::user()->role == 'admin')
                                 <div class="col-md-6">
                                     <!-- <a href="/dashboard" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
@@ -119,16 +120,20 @@
                                     </a> -->
                                     <a href="/hapusall" class="btn btn-danger"><i class="fa fa-exclamation-triangle"></i> Hapus Semua</a>
                                 </div>
-                                <div class="col-md-6 d-flex justify-content-end">
-                                    <a href="/perjalanan/create" class="btn btn-primary btn-icon-split sticky-md-right">
+                                @endif
+                                @if(Auth::user()->role == 'user')
+                                <div class="col-md-12    d-flex justify-content-end">
+                                    <a href="/perjalanan/create" class="btn btn-primary btn-icon-split sticky-md-right mb-2">
                                         <span class="text">Tambah</span>
                                         <span class="icon text-white-50">
                                             <i class="fa fa-plus"></i>
                                         </span>
                                     </a>
                                 </div>
+                                @endif
                             </div>
-                            <br>
+
+                            @if(Auth::user()->role == 'user')
                             <div class="table-responsive">
                                 <table class="table table-hover" width="100%" cellspacing="0">
                                     <thead>
@@ -147,17 +152,19 @@
                                         <td>{{$isi->suhu_tubuh}}°</td>
                                         <td>{{$isi->lokasi}}</td>
                                         <td style="text-align: center;">
-                                            <!-- <a href="/perjalanan/edit/{{$isi->id}}" class="btn btn-primary">Edit</a> -->
                                             <a href="/perjalanan/delete/{{$isi->id}}" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tbody>
                                     @endforeach
                                 </table>
                                 <br>
+                                {{ $data->links() }}
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
+
             </div>
 
         </div>

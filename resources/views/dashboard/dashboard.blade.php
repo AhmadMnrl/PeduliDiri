@@ -1,12 +1,18 @@
 @extends('layouts.master')
 @section('content')
+@if(session('error'))
+<script>
+    alert('Anda Tidak Memiliki Akses')
+</script>
+
+@endif
 <!-- <div class="mb-4 text-grey-800">
     <p>Selamat Datang Di Aplikasi Peduli Diri, Dimana Aplikasi Ini untuk Mencatat Riwayat Perjalanan.</p>
     <p>Anda Login Sebagai : <br> <b>{{Auth()->user()->nama}}</b></p>
 </div>
 <div class="row">
 
-                       
+
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -41,13 +47,13 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{asset('admin/assets/img/1.png')}}" class="d-block w-100" style="height: 450px;" alt="...">
+            <img src="{{asset('admin/assets/img/banner3.png')}}" class="d-block w-100" style="height: 450px;" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="{{asset('admin/assets/img/2.png')}}" class="d-block w-100" style="height: 450px;" alt="...">
+            <img src="{{asset('admin/assets/img/banner1.png')}}" class="d-block w-100" style="height: 450px;" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="{{asset('admin/assets/img/3.png')}}" class="d-block w-100" style="height: 450px;" alt="...">
+            <img src="{{asset('admin/assets/img/banner2.png')}}" class="d-block w-100" style="height: 450px;" alt="...">
         </div>
 
     </div>

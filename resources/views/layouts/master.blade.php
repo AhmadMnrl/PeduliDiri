@@ -19,7 +19,25 @@
 
     <link rel="stylesheet" href="{{asset('assets-br/css/theme.css')}}">
 
-    <link href="{{asset('assets-br/img/loog.png')}}" rel='shorcut icon'>
+    <link href="{{asset('assets-br/img/logo1.png')}}" rel='shorcut icon'>
+
+     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+      <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/pickadate/pickadate.css">
+      <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.min.css">
+
+    <!-- BEGIN: Page CSS-->
+      <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.min.css">
+      <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-pickadate.min.css">
+
+      <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
 </head>
 
 <body>
@@ -28,7 +46,7 @@
     <div class="back-to-top"></div>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky mb-5" data-offset="500">
             @include('layouts.includes.navbar')
         </nav>
 
@@ -45,42 +63,15 @@
     </header>
 
 
+    @if (  Request::url() != route('user.data'))
+
 
     <footer class="page-footer bg-image" style="background-image: url(../assets/img/world_pattern.svg);">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-4 py-3">
-                    <h3>PeduliDiri</h3>
-                    <p>Website pencatat riwayat perjalanan anda.</p>
-
-                    <!-- <div class="social-media-button">
-                        <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="#"><span class="mai-logo-twitter"></span></a>
-                        <a href="#"><span class="mai-logo-google-plus-g"></span></a>
-                        <a href="#"><span class="mai-logo-instagram"></span></a>
-                        <a href="#"><span class="mai-logo-youtube"></span></a>
-                    </div> -->
-                </div>
-                <div class="col-lg-4 py-3">
-                    <h5>Link</h5>
-                    <ul class="footer-menu">
-                        <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/perjalanan">Perjalanan</a></li>
-                        <li><a href="/propil/{{auth::user()->id}}">Profile</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 py-3">
-                    <h5>Contact Us</h5>
-                    <p>Jl. JCC PLN No.255 Depok</p>
-                    <a href="#" class="footer-link">566 777 888 999</a>
-                    <a href="#" class="footer-link">smkinformatika@gmail.com</a>
-                </div>
-
-            </div>
-
             <p class="text-center" id="copyright">Copyright &copy; 2022. This template design and develop by <a href="https://macodeid.com/" target="_blank">Peduli Diri</a></p>
         </div>
     </footer>
+     @endif
 
     <script src="{{asset('assets-br/js/jquery-3.5.1.min.js')}}"></script>
 
@@ -91,6 +82,19 @@
     <script src="{{asset('assets-br/vendor/wow/wow.min.js')}}"></script>
 
     <script src="{{asset('assets-br/js/theme.js')}}"></script>
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="../../../app-assets/vendors/js/pickers/pickadate/picker.js"></script>
+    <script src="../../../app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
+    <script src="../../../app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
+    <script src="../../../app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+    <script src="../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="../../../app-assets/js/scripts/forms/pickers/form-pickers.min.js"></script>
+    <script>
+     feather.replace();
+    </script>
 
 </body>
 

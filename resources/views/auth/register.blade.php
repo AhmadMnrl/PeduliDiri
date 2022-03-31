@@ -29,7 +29,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="nik" id="name" placeholder="Masukan NIK (16 Digit)" autocomplete="off" class="form-control  @error('nisn') is-invalid @enderror" value="{{ old('nik') }}" />
+                                <input type="text" name="nik" id="name" placeholder="Masukan NIK (16 Digit)" maxlength="16" autocomplete="off" class="form-control  @error('nisn') is-invalid @enderror" value="{{ old('nik') }}" />
                                 @error('nik')
                                 <span class=" invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -65,12 +65,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="pass" placeholder="Password" class="form-control  @error('password') is-invalid @enderror" value="{{ old('password') }}" />
+                                <input type="password" name="password" id="pass" minlength="8" placeholder="Password" class="form-control  @error('password') is-invalid @enderror" value="{{ old('password') }}" />
                                 @error('password')
                                 <span class=" invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                            </div>
+                             <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password_confirmation" id="pass" minlength="8" placeholder="Konfirmasi Password" class="form-control" />
                             </div>
                             <!-- <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
