@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Perjalanan;
 use App\User;
 use PDF;
+use Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -68,6 +69,7 @@ class PerjalananController extends Controller
      */
     public function store(Request $request)
     {
+        Alert::success('Sukses', 'Perjalanan sukses ditambahkan');
 
         if (Auth::user()->role == 'admin') {
            return redirect('dashboard')->with('error','anda tidak memiliki akses');
@@ -148,17 +150,21 @@ class PerjalananController extends Controller
            return redirect('dashboard')->with('error','anda tidak memiliki akses');
         }
         Perjalanan::destroy($id);
+        Alert::success('Sukses', 'Perjalanan berhasil dihapus');
+
         return redirect('/perjalanan');
     }
     public function hapus($id)
     {
-        User::destroy($id);
+         User::destroy($id);
+         Alert::warning('Sukses', 'User berhasil dihapus');
+
         return redirect('/dataUser');
     }
     public function hapusAll()
     {
 
-        if (Auth::user()->role == 'admin') {
+        if (Auth::user()->role == 'user') {
            return redirect('dashboard')->with('error','anda tidak memiliki akses');
         }
         Perjalanan::truncate();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Alert;
 
 
 class AuthController extends Controller
@@ -41,14 +42,12 @@ class AuthController extends Controller
        'remember_token'=>str_random('60'),
        'role' => 'user'
     ]);
-
+        Alert::success('Sukses', 'Berhasil membuat akun silahkan login!');
         return redirect('/signin')->with('message', 'Akun Berhasil Dibuat');;
     }
      public function postlogin(Request $request)
     {
-        if
-
-        (Auth::attempt($request->only('username','password'))){
+        if(Auth::attempt($request->only('username','password'))){
         return redirect('/dashboard');
         }
         return redirect('/signin');
@@ -56,6 +55,8 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+
+        Alert::warning('Peringatan', 'Anda telah logout dari akun anda');
         return redirect('/signin');
 
     }

@@ -8,11 +8,12 @@
     <title>Halaman Login | Peduli Diri</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="{{asset('login/assets/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ asset('login/assets/fonts/material-icon/css/material-design-iconic-font.min.css') }}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{{asset('login/assets/css/style.css')}}">
-    <link href="{{asset('assets-br/img/logo1.png')}}" rel='shorcut icon'>
+    <link rel="stylesheet" href="{{ asset('login/assets/css/style.css') }}">
+    <link href="{{ asset('assets-br/img/logo1.png') }}" rel='shorcut icon'>
 
 </head>
 
@@ -24,7 +25,8 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="{{asset('login/assets/images/signin-image.jpg')}}" alt="sing up image"></figure>
+                        <figure><img src="{{ asset('login/assets/images/signin-image.jpg') }}" alt="sing up image">
+                        </figure>
                         <a href="/signup" class="signup-image-link">Buat Akun</a>
                     </div>
 
@@ -34,7 +36,8 @@
                             @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" autocomplete="off" name="username" id="your_name" placeholder="Username" />
+                                <input type="text" autocomplete="off" name="username" id="your_name"
+                                    placeholder="Username" />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
@@ -62,10 +65,11 @@
         </section>
 
     </div>
+    @include('sweetalert::alert')
 
     <!-- JS -->
-    <script src="{{asset('login/assets/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('login/assets/js/main.js')}}"></script>
+    <script src="{{ asset('login/assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('login/assets/js/main.js') }}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
