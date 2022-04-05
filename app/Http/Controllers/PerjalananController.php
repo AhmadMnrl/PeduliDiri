@@ -6,6 +6,7 @@ use App\Perjalanan;
 use App\User;
 use PDF;
 use Alert;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,12 @@ class PerjalananController extends Controller
         if(Auth::user()->role == 'admin'){
            return redirect('dashboard')->with('error','anda tidak memiliki akses');
         }
-
-        $data = Perjalanan::where('id_user', Auth::user()->id)->simplePaginate(3);
+        if (request()->start_date) {
+            $start_date = Carbon::parse(request()->start_date)->toDateString();
+            $data = Perjalanan::where('tanggal', [$start_date])->simplePaginate(3);
+        } else {
+            $data = Perjalanan::where('id_user', Auth::user()->id)->simplePaginate(3);
+        }
         // dd(Auth::user()->role);
         return view('perjalanan.index',compact('data'));
     }

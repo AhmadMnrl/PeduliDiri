@@ -46,10 +46,7 @@ Route::group(['middleware' => ['auth','prevent-back-history']],function(){
     Route::get('/dataUser', 'PerjalananController@dataUser')->name('user.data');
     Route::get('/dataUser/cetak_pdf', 'PerjalananController@cetak_pdf');
     Route::get('/hapus/user/{id}','PerjalananController@hapus');
-    Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
-    });
-
+    
 });
 
 

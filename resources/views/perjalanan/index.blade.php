@@ -75,6 +75,12 @@
     </head>
 
     <body>
+         <form action="/perjalanan" method="get">
+         <div class="input-group" style="">
+             <input type="date" class="form-control" name="start_date">
+             <button class="genric-btn btn-info radius" type="submit">GET</button>
+         </div>
+     </form>
         <div class="container">
             <!-- <div class="page-banner">
                 <div class="row justify-content-center align-items-center h-100">
@@ -113,18 +119,19 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="row">
-                                    @if (Auth::user()->role == 'admin')
-                                        <div class="col-md-6">
+                                    {{-- @if (Auth::user()->role == 'admin') --}}
+                                        {{-- <div class="col-md-6"> --}}
                                             <!-- <a href="/dashboard" class="btn btn-primary btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fa fa-arrow-left"></i>
                                             </span>
                                             <span class="text">Kembali</span>
                                         </a> -->
-                                            <a href="/hapusall" class="btn btn-danger"><i
-                                                    class="fa fa-exclamation-triangle"></i> Hapus Semua</a>
-                                        </div>
-                                    @endif
+                                            {{-- <a href="/hapusall" class="btn btn-danger"><i
+                                                    class="fa fa-exclamation-triangle"></i> Hapus Semua</a> --}}
+
+                                        {{-- </div> --}}
+                                    {{-- @endif --}}
                                     @if (Auth::user()->role == 'user')
                                         <div class="col-md-12    d-flex justify-content-end">
                                             <a href="/perjalanan/create"

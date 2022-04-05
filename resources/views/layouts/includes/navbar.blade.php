@@ -4,7 +4,6 @@
          aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
      </button>
-
      <div class="navbar-collapse collapse" id="navbarContent">
          <ul class="navbar-nav ml-auto">
              <li class="nav-item active">
