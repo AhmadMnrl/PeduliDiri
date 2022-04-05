@@ -75,26 +75,21 @@
     </head>
 
     <body>
-         <form action="/perjalanan" method="get">
-         <div class="input-group" style="">
-             <input type="date" class="form-control" name="start_date">
-             <button class="genric-btn btn-info radius" type="submit">GET</button>
-         </div>
-     </form>
+
         <div class="container">
             <!-- <div class="page-banner">
-                <div class="row justify-content-center align-items-center h-100">
-                    <div class="col-mt-18">
-                        <nav aria-label="Breadcrumb">
-                            <ul class="breadcrumb justify-content-center py-0 bg-transparent">
-                                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Perjalanan</li>
-                            </ul>
-                        </nav>
-                        <h1 class="text-center">Perjalanan</h1>
-                    </div>
-                </div>
-            </div> -->
+                        <div class="row justify-content-center align-items-center h-100">
+                            <div class="col-mt-18">
+                                <nav aria-label="Breadcrumb">
+                                    <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item active">Perjalanan</li>
+                                    </ul>
+                                </nav>
+                                <h1 class="text-center">Perjalanan</h1>
+                            </div>
+                        </div>
+                    </div> -->
             <div class="main-body">
                 <div class="row gutters-sm">
                     <div class="col-md-4 mb-3">
@@ -116,21 +111,27 @@
                     </div>
 
                     <div class="col-md-8">
-                        <div class="card mb-4">
+                        <form action="/perjalanan" method="get">
+                            <div class="input-group ">
+                                <input type="date" class="form-control" name="start_date">
+                                <button class="genric-btn btn-info radius" type="submit">GET</button>
+                            </div>
+                        </form>
+                        <div class="card mb-4 mt-2">
                             <div class="card-body">
                                 <div class="row">
                                     {{-- @if (Auth::user()->role == 'admin') --}}
-                                        {{-- <div class="col-md-6"> --}}
-                                            <!-- <a href="/dashboard" class="btn btn-primary btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                <i class="fa fa-arrow-left"></i>
-                                            </span>
-                                            <span class="text">Kembali</span>
-                                        </a> -->
-                                            {{-- <a href="/hapusall" class="btn btn-danger"><i
+                                    {{-- <div class="col-md-6"> --}}
+                                    <!-- <a href="/dashboard" class="btn btn-primary btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fa fa-arrow-left"></i>
+                                                    </span>
+                                                    <span class="text">Kembali</span>
+                                                </a> -->
+                                    {{-- <a href="/hapusall" class="btn btn-danger"><i
                                                     class="fa fa-exclamation-triangle"></i> Hapus Semua</a> --}}
 
-                                        {{-- </div> --}}
+                                    {{-- </div> --}}
                                     {{-- @endif --}}
                                     @if (Auth::user()->role == 'user')
                                         <div class="col-md-12    d-flex justify-content-end">
