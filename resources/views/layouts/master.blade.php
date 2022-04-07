@@ -63,13 +63,17 @@
     </header>
 
 
-    @if (Request::url() != route('user.data'))
+    @if (Request::url() != route('user.data') )
+        @if (isset($data))
+
+        @else
         <footer class="page-footer bg-image" style="background-image: url(../assets/img/world_pattern.svg);">
             <div class="container">
                 <p class="text-center" id="copyright">Copyright &copy; 2022. This template design and develop by <a
                         href="https://macodeid.com/" target="_blank">Peduli Diri</a></p>
             </div>
         </footer>
+        @endif
     @endif
 
     <script src="{{ asset('assets-br/js/jquery-3.5.1.min.js') }}"></script>

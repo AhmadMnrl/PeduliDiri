@@ -18,7 +18,13 @@
                     <tbody>
                         <tr>
                             <td>{{ $isi->id }}</td>
-                            <td>{{ $isi->nama }}</td>
+                            <td>
+                                @if ($isi->role == 'user')
+                                    <a href="/perjalanan/show/{{$isi->id}}">{{ $isi->nama }}</a>
+                                @else
+                                    {{ $isi->nama }}
+                                @endif
+                            </td>
                             <td>{{ $isi->email }}</td>
                             <td>{{ $isi->role }}</td>
                             <td>
@@ -32,5 +38,5 @@
             </table>
         </div>
     </div>
-    
+
 @endsection

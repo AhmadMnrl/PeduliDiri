@@ -15,7 +15,7 @@ class CreatePerjalanansTable extends Migration
     {
         Schema::create('perjalanans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_user');
+            $table->string('id_user');
             $table->string('tanggal',100);
             $table->string('jam',100);
             $table->string('suhu_tubuh');

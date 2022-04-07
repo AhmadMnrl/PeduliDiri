@@ -96,9 +96,13 @@ class PerjalananController extends Controller
      * @param  \App\Perjalanan  $perjalanan
      * @return \Illuminate\Http\Response
      */
-    public function show(Perjalanan $perjalanan)
+    public function show($id)
     {
-        //
+         if (Auth::user()->role == 'user') {
+            return redirect('dashboard')->with('error', 'anda tidak memiliki akses');
+        }
+        $data = Perjalanan::where('id_user',$id)->get();
+        return view('perjalanan.show',compact('data'));
     }
 
     /**

@@ -16,11 +16,11 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'nik' => '320101124',
-            'nama' => 'ahmad',
+            'nama' => 'admin',
             'telp' => '085719127681',
-            'username' => 'ahmad',
+            'username' => 'admin',
             'email' => 'serigalaberbulu465@gmail.com',
-            'password' => Hash::make('ahmad'),
+            'password' => Hash::make('admin123'),
             'remember_token' => Str::random(32),
             'role' => 'admin'
 

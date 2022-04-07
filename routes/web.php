@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth','prevent-back-history']],function(){
         Route::put('/perjalanan/update/{id}', 'PerjalananController@update');
         Route::get('/hapusall', 'PerjalananController@hapusAll');
         Route::get('/perjalanan/delete/{id}', 'PerjalananController@destroy');
+        Route::get('/perjalanan/show/{id}','PerjalananController@show')->name('perjalanan.show');
 
          Route::get('/dashboard', function () {
               return view('dashboard.dashboard');
